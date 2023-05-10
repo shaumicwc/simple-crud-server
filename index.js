@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config()
 const cors = require('cors');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express();
@@ -10,15 +11,7 @@ app.use(cors());
 app.use(express.json())
 
 
-// csreborn24
-// mxlkubOA4ddTToYz
-
-
-
-
-
-
-const uri = "mongodb+srv://csreborn24:mxlkubOA4ddTToYz@cluster0.ggbivlt.mongodb.net/?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ggbivlt.mongodb.net/?retryWrites=true&w=majority`;
 
 
 const client = new MongoClient(uri, {
